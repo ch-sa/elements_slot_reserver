@@ -1,7 +1,7 @@
 name: reserve
 on:
   schedule:
-    - cron: '15 15 * * *'
+    - cron: '30 13 * * *'
 jobs:
   scrape:
     runs-on: ubuntu-latest
