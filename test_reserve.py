@@ -23,6 +23,7 @@ class TestReserve:
     def teardown_method(self, method):
         # LOGOUT
         self.driver.find_element(By.CSS_SELECTOR, "div > .button").click()
+        print(f"Logged out.")
 
         self.driver.quit()
 
@@ -37,15 +38,19 @@ class TestReserve:
         self.driver.find_element(By.CSS_SELECTOR, "div:nth-child(1) > input").click()
 
         assert self.driver.title == "Kursplan", "login did not succeed"
+        print("Logged in.")
 
         # STUDIO SELECTION
         dropdown = self.driver.find_element(By.ID, "select_studio")
-        dropdown.find_element(By.XPATH, f"//option[. = 'TIMESLOTS {STUDIO_NAME}']").click()
+        dropdown.find_element(
+            By.XPATH, f"//option[. = 'TIMESLOTS {STUDIO_NAME}']"
+        ).click()
 
         assert (
             self.driver.find_element(By.TAG_NAME, "h2").text
             == f"TIMESLOTS {STUDIO_NAME}"
         ), "error when selecting studio"
+        print(f"Selected {STUDIO_NAME}.")
 
         # RESERVATION
         registration_button = self.driver.find_element(
@@ -56,6 +61,7 @@ class TestReserve:
         ), "button does not say reserve"
 
         registration_button.click()
+        print(f"Triggered reservation in {STUDIO_NAME}.")
 
         assert (
             (
@@ -64,3 +70,4 @@ class TestReserve:
             ),
             "reservation failed",
         )
+        print(f"Reservation for {STUDIO_NAME} was acknowledged.")
