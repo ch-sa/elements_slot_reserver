@@ -40,16 +40,7 @@ class TestReserve:
 
         # STUDIO SELECTION
         dropdown = self.driver.find_element(By.ID, "select_studio")
-        dropdown.find_element(By.XPATH, "//option[. = 'TIMESLOTS Balanstraße']").click()
-        element = self.driver.find_element(By.ID, "select_studio")
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).click_and_hold().perform()
-        element = self.driver.find_element(By.ID, "select_studio")
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).perform()
-        element = self.driver.find_element(By.ID, "select_studio")
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).release().perform()
+        dropdown.find_element(By.XPATH, f"//option[. = 'TIMESLOTS {STUDIO_NAME}']").click()
 
         assert (
             self.driver.find_element(By.TAG_NAME, "h2").text

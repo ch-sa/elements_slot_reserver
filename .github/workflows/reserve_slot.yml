@@ -1,9 +1,9 @@
 name: reserve
 on:
   schedule:
-    - cron: '30 13 * * *'
+    - cron: '55 13 * * *'
 jobs:
-  scrape:
+  reserve:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
@@ -27,4 +27,4 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           STUDIO_NAME: ${{ secrets.STUDIO_NAME }}
-        run: pytest
+        run: pytest -v | echo Sucessfully reserved at ${{ secrets.STUDIO_NAME }}.
