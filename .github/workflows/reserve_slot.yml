@@ -5,10 +5,6 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-      - name: fill environment variables
-        env:
-          EMAIL: ${{ secrets.EMAIL }}
-          PASSWORD: ${{ secrets.PASSWORD }}
       - name: Check out this repo
         uses: actions/checkout@v2
       - name: Set up Python
@@ -26,4 +22,7 @@ jobs:
       - name: Install all necessary packages
         run: pip install -r requirements.txt
       - name: Run the reservation script
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: pytest
