@@ -1,7 +1,7 @@
 # elements_slot_reserver
 A simple tool to automatically register for a slot in a selected studio for the next day.
 
-The script is scheduled for every day at 13:30 UTC time.
+The script is scheduled for every day at 13:55 UTC time ([see scheduler](https://github.com/ch-sa/elements_slot_reserver/blob/062cd6286784f5842314eb2153a80c0c0c4bc519/.github/workflows/reserve_slot.yml#L5)).
 
 ## Variables
 The tool is configured through GitHub secrets that
