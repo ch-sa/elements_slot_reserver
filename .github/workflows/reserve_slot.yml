@@ -1,6 +1,7 @@
 name: reserve
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '4 13 * * *'
 jobs:
   scrape:
     runs-on: ubuntu-latest
