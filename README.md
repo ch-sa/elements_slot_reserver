@@ -1,7 +1,11 @@
 # elements_slot_reserver
-A simple tool to automatically schedule a slot in a selected studio for the next day.
+A simple tool to automatically register for a slot in a selected studio for the next day.
+
+The script is scheduled for every day at 13:30 UTC time.
 
 ## Variables
+The tool is configured through GitHub secrets that
+[you need to set in your forked repository](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
 
 ### Studio
 
