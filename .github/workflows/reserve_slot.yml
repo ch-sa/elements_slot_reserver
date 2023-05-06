@@ -28,4 +28,4 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           STUDIO_NAME: ${{ secrets.STUDIO_NAME }}
-        run: pytest -v | echo Sucessfully reserved at ${{ secrets.STUDIO_NAME }}.
+        run: pytest -s
