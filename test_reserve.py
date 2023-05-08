@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.utils import ChromeType
 
-STUDIO_NAME = os.getenv("STUDIO_NAME", "Donnersbergerbrücke")
+STUDIO_NAME = os.getenv("STUDIO_NAME") or "Donnersbergerbrücke"
 EMAIL = os.environ["EMAIL"]
 PASSWORD = os.environ["PASSWORD"]
 
