@@ -1,11 +1,7 @@
 import os
 
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.core.utils import ChromeType
 
 STUDIO_NAME = os.getenv("STUDIO_NAME") or "Donnersbergerbrücke"
 EMAIL = os.environ["EMAIL"]
@@ -14,10 +10,9 @@ PASSWORD = os.environ["PASSWORD"]
 
 class TestReserve:
     def setup_method(self, method):
-        driver_path = ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
-        webdriver_options = Options()
+        webdriver_options = webdriver.ChromeOptions()
         webdriver_options.add_argument("--headless")
-        self.driver = webdriver.Chrome(driver_path, options=webdriver_options)
+        self.driver = webdriver.Chrome(webdriver_options)
         self.vars = {}
 
     def teardown_method(self, method):
